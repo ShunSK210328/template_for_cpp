@@ -20,8 +20,8 @@ using namespace std;
 #define sc_l(a) static_cast<ll>(a)
 #define sc_d(a) static_cast<double>(a)
 #define sc_c(a) static_cast<char>(a)
-#define trace1(a) debug_print(cerr, "[", __LINE__, "] ", #a "=", a)
-#define trace(...) debug_print(cerr, "[", __LINE__, "] ", __VA_ARGS__)
+#define trace(a) cerr << "[" << __LINE__ << "] " << #a << " = " << a << NL
+#define debug_print(...) print(cerr, "[" + to_string(__LINE__) + "]", __VA_ARGS__)
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -103,14 +103,10 @@ void print(ostream& os, const Head& head, const Tail&... tail) {
     os << head << ' ', print(os, tail...);
 }
 
-void debug_print(ostream& os) { os << NL; }
-
-template <class Head, class... Tail>
-void debug_print(ostream& os, const Head& head, const Tail&... tail) {
-    os << head, debug_print(os, tail...);
+template <class T>
+inline void respond(bool ans, const T& t, const T& f) {
+    cout << (ans ? t : f) << NL;
 }
-
-inline void respond(bool ans, const string& t, const string& f) { cout << (ans ? t : f) << NL; }
 
 inline void yesno(bool ans) { respond(ans, YES, NO); }
 
@@ -196,8 +192,8 @@ struct Problem {
     Problem() = default;
 
     void solve() {
-        int n;
-        read(cin, n);
+        int N;
+        read(cin, N);
     }
 
     void repeat_solve() {
