@@ -65,7 +65,7 @@ const string NO = "No";
 #endif
 
 template <class T>
-inline T input() {
+inline T in() {
     T a;
     cin >> a;
     return a;
@@ -86,6 +86,22 @@ template <class T>
 istream& operator>>(istream& is, vv<T>& a) {
     fore(&a_i, a) fore(&a_ij, a_i) is >> a_ij;
     return is;
+}
+
+void out() { cout << NL; }
+
+template <class Head, class... Tail>
+void out(Head&& head, Tail&&... tail) {
+    cout << head << ' ';
+    out(forward<Tail>(tail)...);
+}
+
+void debug() { cerr << NL; }
+
+template <class Head, class... Tail>
+void debug(Head&& head, Tail&&... tail) {
+    cerr << head << ' ';
+    debug(forward<Tail>(tail)...);
 }
 
 template <class T1, class T2>
@@ -159,13 +175,11 @@ const array<int, 4> DX = {-1, 0, 1, 0};
 const array<int, 4> DY = {0, -1, 0, 1};
 
 struct Problem {
-    Problem() = default;
-
-    void solve() { int N = input<int>(); }
+    void solve() { int N = in<int>(); }
 
     void repeat_solve() {
-        int t = input<int>();
-        rep(i, 0, t) solve();
+        int T = in<int>();
+        rep(i, 0, T) solve();
     }
 };
 
@@ -176,7 +190,7 @@ int main() {
 
     Problem problem;
     problem.solve();
-    // problem.repeat_solve()
+    // problem.repeat_solve();
 
     return 0;
 }
