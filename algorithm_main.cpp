@@ -13,13 +13,12 @@ using namespace std;
 #define repe(i, a, b) for (ll i = (a); i <= (b); ++i)
 #define rrep(i, a, b) for (ll i = (a); i > (b); --i)
 #define rrepe(i, a, b) for (ll i = (a); i >= (b); --i)
-#define fore(a, b) for (auto a : (b))
 #define rng(a) (a).begin(), (a).end()
 #define rrng(a) (a).rbegin(), (a).rend()
-#define to_char(a) static_cast<char>(a)
-#define to_int(a) static_cast<int>(a)
-#define to_ll(a) static_cast<ll>(a)
-#define to_double(a) static_cast<double>(a)
+#define sc_char(a) static_cast<char>(a)
+#define sc_int(a) static_cast<int>(a)
+#define sc_ll(a) static_cast<ll>(a)
+#define sc_double(a) static_cast<double>(a)
 #define trace(a) cerr << __LINE__ << ">>> " << #a << "=" << a << NL
 //
 ////////////////////////////////////////////////////////////////////////////////
@@ -63,13 +62,6 @@ const string NO = "no";
 const string YES = "Yes";
 const string NO = "No";
 #endif
-
-template <class T>
-inline T in() {
-    T a;
-    cin >> a;
-    return a;
-}
 
 template <class T1, class T2>
 istream& operator>>(istream& is, pair<T1, T2>& a) {
@@ -175,10 +167,14 @@ const array<int, 4> DX = {-1, 0, 1, 0};
 const array<int, 4> DY = {0, -1, 0, 1};
 
 struct Problem {
-    void solve() { int N = in<int>(); }
+    void solve() {
+        int N;
+        cin >> N;
+    }
 
     void repeat_solve() {
-        int T = in<int>();
+        int T;
+        cin >> T;
         rep(i, 0, T) solve();
     }
 };
